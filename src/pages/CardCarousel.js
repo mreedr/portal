@@ -6,17 +6,20 @@ function random(seed) {
   var x = Math.sin(seed++) * 10000
   return x - Math.floor(x)
 }
-const randColor = (seed) => Math.floor(random(seed + 1) * 16777215).toString(16)
+// 17, 18
+const randColor = (seed) => Math.floor(random(seed + 19) * 16777215).toString(16)
 
 const CardCarousel = props => {
   const [data, setData] = useState([
-    'rotateY(0deg)', 'rotateY(40deg)', 'rotateY(80deg)', 'rotateY(120deg)', 'rotateY(160deg)',
-    'rotateY(200deg)', 'rotateY(240deg)', 'rotateY(280deg)', 'rotateY(320deg)'
+    '(0deg)', '(40deg)', '(80deg)', 1,2,3,5,6,7
   ])
-  const [orientation, setOrientation] = useState('rotateY(0deg)')
+  const [orientation, setOrientation] = useState(0)
 
+  const interval = 360 / data.length
   // docuement.width / data.
   // var tz = Math.round((cellsize / 2) / Math.tan(Math.PI / data.length))
+
+  // make each cell it's own scene and then you can get them to face forward
 
   return (
     <Container>
@@ -24,9 +27,10 @@ const CardCarousel = props => {
         <Carousel orientation={orientation}>
           {data.map((el, i) => {
             return (
-              <Cell color={randColor(i)} rotate={el}
-                onClick={e => setOrientation(`rotateY(${i * 40}deg)`)}>
-                  card caroselcard caroselcard 
+              <Cell key={el} color={randColor(i)}
+                rotate={interval * i}
+                onClick={e => setOrientation(-(interval * i))}>
+                {i}
               </Cell>
             )
           })}
@@ -47,21 +51,27 @@ const Container = styled.div`
 const Scene = styled.div`
   perspective: 450px;
   border: 1px solid gray;
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
 `
+
+const size = 400
 
 const Carousel = styled.div`
   display: grid;
   transform-style: preserve-3d;
   height: 100%;
-  transform: translateZ(-220px) ${props => props.orientation};
+  transform: translateZ(-${size}px) rotateY(${props => props.orientation}deg);
   transition: all 2s;
 `
 
 const Cell = styled.div`
+  position: relative;
   opacity: 0.5;
   grid-area: 1 / 1 / span 1 / span 1;
   background: #${props => props.color};
-  transform:  ${props => props.rotate} translateZ(220px);
+  transform: rotateY(${props => props.rotate}deg) translateZ(${size}px);
+  color: white;
+  font-size: 2.5rem;
+  /* rotateY(${props => props.rotate * -1}deg) */
 `

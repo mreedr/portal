@@ -10,6 +10,8 @@ import Shutter from './pages/Shutter'
 import WaveGrid from './pages/WaveGrid'
 import Cube from './pages/Cube'
 import CardCarousel from './pages/CardCarousel'
+import Logo from './pages/Logo'
+import Worm from './pages/Worm'
 
 import './index.css'
 
@@ -22,6 +24,8 @@ ReactDOM.render(
         <Base exact path="/wave-grid" component={WaveGrid} />
         <Base exact path="/cube" component={Cube} />
         <Base exact path="/carousel" component={CardCarousel} />
+        <Base exact path="/worm" component={Worm} />
+        <Base exact path="/logo" component={Logo} />
         <Base path="/" component={Notfound} />
       </Switch>
     </BrowserRouter>
