@@ -11,7 +11,7 @@ const randColor = (seed) => Math.floor(random(seed + 19) * 16777215).toString(16
 
 const CardCarousel = props => {
   const [data, setData] = useState([
-    '(0deg)', '(40deg)', '(80deg)', 1,2,3,5,6,7
+    '(0deg)', '(40deg)', '(80deg)', 1,2,3,5,6,7,9,10,11
   ])
   const [orientation, setOrientation] = useState(0)
 
@@ -55,7 +55,7 @@ const Scene = styled.div`
   width: 200px;
 `
 
-const size = 400
+const size = 600
 
 const Carousel = styled.div`
   display: grid;
