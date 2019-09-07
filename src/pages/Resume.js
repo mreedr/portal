@@ -112,6 +112,7 @@ const FlexibleContainer = styled.div`
     ". row .";
 `
 /*
+  next steps:
   could change to grid-template-areas to include side gutters and remove
   "columns" concept from html
   that would be coo...
