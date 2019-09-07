@@ -108,6 +108,7 @@ const FlexibleContainer = styled.div`
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 980px) minmax(0, 1fr);
   grid-auto-columns: 1fr;
+  padding: 1rem;
   grid-template-areas:
     ". row .";
 `
