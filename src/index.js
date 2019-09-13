@@ -12,6 +12,7 @@ import Cube from './pages/Cube'
 import CardCarousel from './pages/CardCarousel'
 import Logo from './pages/Logo'
 import Worm from './pages/Worm'
+import ExpandCard from './pages/ExpandCard'
 
 import './index.css'
 
@@ -20,6 +21,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Base exact path="/" component={Resume} />
+        <Base exact path="/expand-card" component={ExpandCard} />
         <Base exact path="/shutter" component={Shutter} />
         <Base exact path="/wave-grid" component={WaveGrid} />
         <Base exact path="/cube" component={Cube} />
