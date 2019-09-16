@@ -18,6 +18,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "docker-build": "docker build -t sample:dev .",
+    "docker-run": "docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm sample:dev",
+    "docker-build-prod": "docker build -f Dockerfile-prod -t sample:prod .",
+    "docker-run-prod": "docker run -it -p 80:80 --rm sample:prod",
+    "run": "docker run -it -p 80:80 --rm sample:prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
